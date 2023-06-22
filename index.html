@@ -22,7 +22,7 @@
 	 position: relative;
 	 margin: auto;
 	 overflow: hidden;
-	 width: 650px;
+	 width: 100%;
 	 height: 480px;
 }
  h1 {
@@ -46,7 +46,7 @@
  .days, .hours, .minutes, .seconds {
 	 display: inline-block;
 	 padding: 20px;
-	 width: 100px;
+	 width: 25%;
 	 border-radius: 5px;
 }
  .days {
@@ -206,80 +206,80 @@
 <body>
     <div class="container">
         <div class="balloon white">
-          <div class="star-red"></div>
-        <div class="face">
-          <div class="eye"></div>
-          <div class="mouth happy"></div>
+            <div class="star-red"></div>
+            <div class="face">
+                <div class="eye"></div>
+                <div class="mouth happy"></div>
+            </div>
+            <div class="triangle"></div>
+            <div class="string"></div>
         </div>
-        <div class="triangle"></div>
-        <div class="string"></div>
-      </div>
       
-      <div class="balloon red">
-        <div class="star"></div>
-        <div class="face">
-          <div class="eye"></div>
-          <div class="mouth happy"></div>
+        <div class="balloon red">
+            <div class="star"></div>
+            <div class="face">
+                <div class="eye"></div>
+                <div class="mouth happy"></div>
+            </div>
+            <div class="triangle"></div>
+            <div class="string"></div>
         </div>
-        <div class="triangle"></div>
-        <div class="string"></div>
-      </div>
       
-      <div class="balloon blue">
-        <div class="star"></div>
-        <div class="face">
-          <div class="eye"></div>
-          <div class="mouth happy"></div>
+        <div class="balloon blue">
+            <div class="star"></div>
+            <div class="face">
+                <div class="eye"></div>
+                <div class="mouth happy"></div>
+            </div>
+            <div class="triangle"></div>
+            <div class="string"></div>
         </div>
-        <div class="triangle"></div>
-        <div class="string"></div>
-      </div>
         <div id="timer"></div>
         <h1>12 de dezembro contador</h1>
-      </div>
-      <!-- <footer>
-        <p>made by <a href="https://codepen.io/juliepark"> julie</a> ♡
-      </footer> -->
+    </div>
+    <!-- <footer>
+    <p>made by <a href="https://codepen.io/juliepark"> julie</a> ♡
+    </footer> -->
 
-      <script>
+    <script>
         const year = new Date().getFullYear();
         const fourthOfJuly = new Date(year, 11, 12).getTime();
         const fourthOfJulyNextYear = new Date(year + 11, 11, 12).getTime();
         const month = new Date().getMonth();
 
         // countdown
-        let timer = setInterval(function() {
+        // let timer = setInterval(function() {
 
-        // get today's date
-        const today = new Date().getTime();
+            // get today's date
+            const today = new Date().getTime();
 
-        // get the difference
-        let diff;
-        if(month > 6) {
-            diff = fourthOfJulyNextYear - today;
-        } else {
-            diff = fourthOfJuly - today;
-        }
+            // get the difference
+            let diff;
+            if(month > 6) {
+                diff = fourthOfJulyNextYear - today;
+            } else {
+                diff = fourthOfJuly - today;
+            }
 
-        // math
-        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            // math
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        // display
-        document.getElementById("timer").innerHTML =
-            "<div class=\"days\"> \
-        <div class=\"numbers\">" + days + "</div>days</div> \
-        <div class=\"hours\"> \
-        <div class=\"numbers\">" + hours + "</div>hours</div> \
-        <div class=\"minutes\"> \
-        <div class=\"numbers\">" + minutes + "</div>minutes</div> \
-        <div class=\"seconds\"> \
-        <div class=\"numbers\">" + seconds + "</div>seconds</div> \
-        </div>";
+            // display
+            document.getElementById("timer").innerHTML =
+                "<div class=\"days\"> \
+                <div class=\"numbers\">" + days + "</div>days</div> \
+                <div class=\"hours\"> \
+                <div class=\"numbers\">" + hours + "</div>hours</div> \
+                <div class=\"minutes\"> \
+                <div class=\"numbers\">" + minutes + "</div>minutes</div> \
+                <div class=\"seconds\"> \
+                <div class=\"numbers\">" + seconds + "</div>seconds</div> \
+                </div>";
 
-        }, 1000);
-      </script>
+        // }, 1000);
+    </script>
 </body>
 </html>
