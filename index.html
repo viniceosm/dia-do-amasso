@@ -72,7 +72,7 @@
 	 background: #f6f4f3;
 	 height: 85px;
 	 width: 75px;
-	 left: 30%;
+	 left: 76%;
 	 top: 2%;
 }
  .white .triangle {
@@ -86,7 +86,7 @@
 	 position: absolute;
 	 background: #ef2f3c;
 	 left: 18%;
-	 top: 9%;
+	 top: 2%;
 	 height: 65px;
 	 width: 70px;
 }
@@ -103,7 +103,9 @@
 	 height: 80px;
 	 width: 80px;
 	 left: 60%;
-	 top: 5%;
+	 top: 1%;
+
+     display: none;
 }
  .blue .triangle {
 	 border-bottom: 14px solid #276fbf;
@@ -201,6 +203,30 @@
  footer a:hover {
 	 color: #276fbf;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .days, .hours, .minutes, .seconds {
+        width: 17%;
+    }
+    .container {
+        width: 44%;
+    }
+    .red {
+        top: 9%;
+    }
+    .blue {
+        display: block;
+    }
+    .white {
+        left: 30%;
+    }
+}
+
 </style>
 
 <body>
