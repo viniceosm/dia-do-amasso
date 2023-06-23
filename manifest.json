@@ -2,7 +2,7 @@
   "short_name": "Dia do Amasso",
   "name": "Dia do amasso",
   "start_url": "https://viniceosm.github.io/dia-do-amasso/",
-  "display": "fullscreen",
+  "display": "standalone",
   "theme_color": "#183059",
   "icons": [
     {
