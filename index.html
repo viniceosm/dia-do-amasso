@@ -303,10 +303,10 @@
 
     <script>
 	const params = new URLSearchParams(window.location.search);
-	const targetDateParam = params.get('date') || `${new Date().getFullYear()}-12-12`;
+	const targetDateParam = params.get('date') || `${new Date().getFullYear()}-12-12 00:00:00`;
 	const description = params.get('description') || "Contagem Regressiva";
-		
-	const targetDate = new Date(targetDateParam).getTime();
+
+	const targetDate = new Date(targetDateParam.replace(" ", "T")).getTime();
 
 	document.querySelector('h1').innerText = description;
 
