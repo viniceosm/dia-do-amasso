@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dia do amasso</title>
+    <title>Contagem regressiva</title>
 
     <link rel="icon" type="image/png" href="favicon.png" />
 
 	<!-- Facebook Meta Tags -->
 	<meta property="og:url" content="https://viniceosm.github.io/dia-do-amasso/">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Dia do amasso">
-	<meta property="og:description" content="Dia que um dos participantes irá amassar o adversário numa disputa de shape e disciplina">
+	<meta property="og:title" content="Contagem regressiva">
+	<meta property="og:description" content="Contagem regressiva para determinado evento">
 	<meta property="og:image" content="https://viniceosm.github.io/dia-do-amasso/windows11/Square44x44Logo.altform-unplated_targetsize-256.png">
 	
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta property="twitter:domain" content="viniceosm.github.io">
 	<meta property="twitter:url" content="https://viniceosm.github.io/dia-do-amasso/">
-	<meta name="twitter:title" content="Dia do amasso">
-	<meta name="twitter:description" content="Dia que um dos participantes irá amassar o adversário numa disputa de shape e disciplina">
+	<meta name="twitter:title" content="Contagem regressiva">
+	<meta name="twitter:description" content="Contagem regressiva para determinado evento">
 	<meta name="twitter:image" content="https://viniceosm.github.io/dia-do-amasso/windows11/Square44x44Logo.altform-unplated_targetsize-256.png">
 
-    <meta name="theme-color" content="#183059" />
-    <link rel="manifest" href="manifest.json" />
+	<meta name="theme-color" content="#183059" />
+	<link rel="manifest" href="manifest.json" />
 </head>
 
 <style>
@@ -302,44 +302,44 @@
     </footer> -->
 
     <script>
-        const year = new Date().getFullYear();
-        const fourthOfJuly = new Date(year, 11, 12).getTime();
-        const fourthOfJulyNextYear = new Date(year + 11, 11, 12).getTime();
-        const month = new Date().getMonth();
+	const params = new URLSearchParams(window.location.search);
+	const targetDateParam = params.get('date') || `${new Date().getFullYear()}-12-12`;
+	const description = params.get('description') || "Contagem Regressiva";
+		
+	const targetDate = new Date(targetDateParam).getTime();
 
-        // countdown
-        let timer = setInterval(function() {
+	document.querySelector('h1').innerText = description;
 
-            // get today's date
-            const today = new Date().getTime();
+	let timer = setInterval(function () {
+	    const now = new Date().getTime();
+	    const diff = targetDate - now;
 
-            // get the difference
-            let diff;
-            if(month > 11) {
-                diff = fourthOfJulyNextYear - today;
-            } else {
-                diff = fourthOfJuly - today;
-            }
+	    if (diff <= 0) {
+	        clearInterval(timer);
+	        document.getElementById('timer').innerHTML = "<div>Evento começou!</div>";
+	        return;
+	    }
 
-            // math
-            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+	    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+	    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+	    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            // display
-            document.getElementById("timer").innerHTML =
-                "<div class=\"days\"> \
-                <div class=\"numbers\">" + days + "</div>days</div> \
-                <div class=\"hours\"> \
-                <div class=\"numbers\">" + hours + "</div>hours</div> \
-                <div class=\"minutes\"> \
-                <div class=\"numbers\">" + minutes + "</div>minutes</div> \
-                <div class=\"seconds\"> \
-                <div class=\"numbers\">" + seconds + "</div>seconds</div> \
-                </div>";
-
-        }, 1000);
+	    document.getElementById("timer").innerHTML = `
+	        <div class="days">
+	            <div class="numbers">${days}</div>dias
+	        </div>
+	        <div class="hours">
+	            <div class="numbers">${hours}</div>horas
+	        </div>
+	        <div class="minutes">
+	            <div class="numbers">${minutes}</div>minutos
+	        </div>
+	        <div class="seconds">
+	            <div class="numbers">${seconds}</div>segundos
+	        </div>
+	    `;
+	}, 1000);
     </script>
 </body>
 </html>
